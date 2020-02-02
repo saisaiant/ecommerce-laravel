@@ -1,6 +1,8 @@
 <?php
 
 require 'admin.php';
+
+//Route::view('/admin', 'admin.dashboard.index');
 /*
 |--------------------------------------------------------------------------
 | Web Routes

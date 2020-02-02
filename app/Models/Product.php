@@ -43,7 +43,6 @@ class Product extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -51,6 +50,7 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -66,6 +66,7 @@ class Product extends Model
     {
         return $this->hasMany(ProductAttribute::class);
     }
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

@@ -41,8 +41,8 @@ class BaseController extends Controller
     {
         return response()->json([
             'error'         =>  $error,
-            'response_code' => $responseCode,
-            'message'       => $message,
+            'response_code' =>  $responseCode,
+            'message'       =>  $message,
             'data'          =>  $data
         ]);
     }
