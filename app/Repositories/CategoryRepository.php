@@ -67,7 +67,7 @@ class CategoryRepository extends BaseRepository implements CategoryContract
             
             $image = null;
 
-            if ($collection->has('image') && ($params['image'] instanceof  UploadedFile)) {
+            if ($collection->has('image') && ($params['image'] instanceof UploadedFile)) {
                 $image = $this->uploadOne($params['image'], 'categories');
             }
 

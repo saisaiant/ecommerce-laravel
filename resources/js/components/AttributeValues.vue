@@ -33,12 +33,7 @@
             <button class="btn btn-success" type="submit" @click.stop="saveValue()" v-if="addValue">
               <i class="fa fa-fw fa-lg fa-check-circle"></i>Save
             </button>
-            <button
-              class="btn btn-success"
-              type="submit"
-              @click.stop="updateValue()"
-              v-if="!addValue"
-            >
+            <button class="btn btn-success" type="submit" @click.stop="updateValue()" v-if="!addValue">
               <i class="fa fa-fw fa-lg fa-check-circle"></i>Update
             </button>
             <button class="btn btn-primary" type="submit" @click.stop="reset()" v-if="!addValue">
@@ -62,7 +57,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="value in values">
+              <tr v-for="value in values" :key="value.id">
                 <td style="width: 25%" class="text-center">{{ value.id}}</td>
                 <td style="width: 25%" class="text-center">{{ value.value}}</td>
                 <td style="width: 25%" class="text-center">{{ value.price}}</td>
