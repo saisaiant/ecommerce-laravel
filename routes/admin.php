@@ -45,6 +45,7 @@ Route::group(['prefix'  =>  'admin'], function () {
     
     });
 
+    // Brand Route
     Route::group(['prefix'  =>   'brands'], function() {
 
         Route::get('/', 'Admin\BrandController@index')->name('admin.brands.index');

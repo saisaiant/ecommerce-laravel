@@ -68,7 +68,7 @@ class BrandRepository extends BaseRepository implements BrandContract
 
             $logo = null;
 
-            if ($collection->has('logo') && ($params['logo'] instanceof  UploadedFile)) {
+            if ($collection->has('logo') && ($params['logo'] instanceof UploadedFile)) {
                 $logo = $this->uploadOne($params['logo'], 'brands');
             }
 
@@ -95,7 +95,7 @@ class BrandRepository extends BaseRepository implements BrandContract
 
         $collection = collect($params)->except('_token');
 
-        if ($collection->has('logo') && ($params['logo'] instanceof  UploadedFile)) {
+        if ($collection->has('logo') && ($params['logo'] instanceof UploadedFile)) {
 
             if ($brand->logo != null) {
                 $this->deleteOne($brand->logo);
