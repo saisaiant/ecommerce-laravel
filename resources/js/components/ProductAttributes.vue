@@ -8,16 +8,16 @@
           <div class="col-md-4">
             <div class="form-group">
               <label for="parent">
-                Select an Attribute
-                <span class="m-l-5 text-danger">*</span>
+                  Select an Attribute
+                  <span class="m-l-5 text-danger">*</span>
               </label>
               <select
-                id="parent"
-                class="form-control custom-select mt-15"
-                v-model="attribute"
-                @change="selectAttribute(attribute)"
-              >
-                <option :value="attribute" v-for="attribute in attributes">{{ attribute.name }}</option>
+                  id="parent"
+                  class="form-control custom-select mt-15"
+                  v-model="attribute"
+                  @change="selectAttribute(attribute)"
+                >
+                  <option :value="attribute" v-for="attribute in attributes" :key="attribute.id">{{ attribute.name }}</option>
               </select>
             </div>
           </div>
@@ -39,7 +39,7 @@
               v-model="value"
               @change="selectValue(value)"
             >
-              <option :value="value" v-for="value in attributeValues">{{ value.value }}</option>
+              <option :value="value" v-for="(value, index) in attributeValues" :key="index">{{ value.value }}</option>
             </select>
           </div>
         </div>
@@ -81,7 +81,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="pa in productAttributes">
+              <tr v-for="(pa,index) in productAttributes" :key="index">
                 <td style="width: 25%" class="text-center">{{ pa.value}}</td>
                 <td style="width: 25%" class="text-center">{{ pa.quantity}}</td>
                 <td style="width: 25%" class="text-center">{{ pa.price}}</td>
@@ -102,7 +102,10 @@
 <script>
 export default {
   name: "product-attributes",
-  props: ["productid"],
+  props: {
+    //"productid"
+    productid: Number
+  },
   data() {
     return {
       productAttributes: [],

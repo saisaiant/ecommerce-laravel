@@ -57,6 +57,7 @@ Route::group(['prefix'  =>  'admin'], function () {
     
     });
 
+    // Product Route
     Route::group(['prefix' => 'products'], function () {
 
         Route::get('/', 'Admin\ProductController@index')->name('admin.products.index');
