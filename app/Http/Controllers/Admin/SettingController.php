@@ -6,26 +6,25 @@ use App\Models\Setting;
 use App\Traits\UploadAble;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
-
-
+use Illuminate\Http\UploadedFile;
 
 class SettingController extends BaseController
 {
     use UploadAble;
     /**
-    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-    */
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        
+
         $this->setPageTitle('Settings', 'Manage Settings');
         return view('admin.settings.index');
     }
-    
+
     /**
-    * @param Request $request
-    * @return \Illuminate\Http\RedirectResponse
-    */
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request)
     {
         if ($request->has('site_logo') && ($request->file('site_logo') instanceof UploadedFile)) {
@@ -35,7 +34,6 @@ class SettingController extends BaseController
             }
             $logo = $this->uploadOne($request->file('site_logo'), 'img');
             Setting::set('site_logo', $logo);
-
         } elseif ($request->has('site_favicon') && ($request->file('site_favicon') instanceof UploadedFile)) {
 
             if (config('settings.site_favicon') != null) {
@@ -43,17 +41,14 @@ class SettingController extends BaseController
             }
             $favicon = $this->uploadOne($request->file('site_favicon'), 'img');
             Setting::set('site_favicon', $favicon);
-
         } else {
 
             $keys = $request->except('_token');
 
-            foreach ($keys as $key => $value)
-            {
+            foreach ($keys as $key => $value) {
                 Setting::set($key, $value);
             }
         }
         return $this->responseRedirectBack('Settings updated successfully.', 'success');
     }
-
 }

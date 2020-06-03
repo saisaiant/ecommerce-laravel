@@ -34,7 +34,7 @@ class Product extends Model
         'featured'  =>  'boolean'
     ];
 
-     /**
+    /**
      * @param $value
      */
     public function setNameAttribute($value)
@@ -66,7 +66,7 @@ class Product extends Model
     {
         return $this->hasMany(ProductAttribute::class);
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

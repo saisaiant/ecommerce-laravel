@@ -17,7 +17,8 @@ class Setting extends Model
      */
     protected $fillable = ['key', 'value'];
 
-    public static function get($key) {
+    public static function get($key)
+    {
         $setting = new self();
         $entry = $setting->where('key', $key)->first();
         if (!$entry) {
@@ -27,10 +28,10 @@ class Setting extends Model
     }
 
     /**
-    * @param $key
-    * @param null $value
-    * @return bool
-    */
+     * @param $key
+     * @param null $value
+     * @return bool
+     */
     public static function set($key, $value = null)
     {
         $setting = new self();
@@ -43,5 +44,4 @@ class Setting extends Model
         }
         return false;
     }
-
 }

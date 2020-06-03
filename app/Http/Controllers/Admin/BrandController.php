@@ -23,8 +23,8 @@ class BrandController extends BaseController
     }
 
     /**
-    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-    */
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $brands = $this->brandRepository->listBrands();
@@ -34,8 +34,8 @@ class BrandController extends BaseController
     }
 
     /**
-    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-    */
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         $this->setPageTitle('Brands', 'Create Brand');
@@ -61,7 +61,7 @@ class BrandController extends BaseController
         if (!$brand) {
             return $this->responseRedirectBack('Error occurred while creating brand.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.brands.index', 'Brand added successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.brands.index', 'Brand added successfully', 'success', false, false);
     }
 
     /**
@@ -72,7 +72,7 @@ class BrandController extends BaseController
     {
         $brand = $this->brandRepository->findBrandById($id);
 
-        $this->setPageTitle('Brands', 'Edit Brand : '.$brand->name);
+        $this->setPageTitle('Brands', 'Edit Brand : ' . $brand->name);
         return view('admin.brands.edit', compact('brand'));
     }
 
@@ -95,7 +95,7 @@ class BrandController extends BaseController
         if (!$brand) {
             return $this->responseRedirectBack('Error occurred while updating brand.', 'error', true, true);
         }
-        return $this->responseRedirectBack('Brand updated successfully' ,'success',false, false);
+        return $this->responseRedirectBack('Brand updated successfully', 'success', false, false);
     }
 
     /**
@@ -109,6 +109,6 @@ class BrandController extends BaseController
         if (!$brand) {
             return $this->responseRedirectBack('Error occurred while deleting brand.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.brands.index', 'Brand deleted successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.brands.index', 'Brand deleted successfully', 'success', false, false);
     }
 }

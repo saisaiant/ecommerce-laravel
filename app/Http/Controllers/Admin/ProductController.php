@@ -21,8 +21,7 @@ class ProductController extends BaseController
         BrandContract $brandRepository,
         CategoryContract $categoryRepository,
         ProductContract $productRepository
-    )
-    {
+    ) {
         $this->brandRepository = $brandRepository;
         $this->categoryRepository = $categoryRepository;
         $this->productRepository = $productRepository;
@@ -54,7 +53,7 @@ class ProductController extends BaseController
         if (!$product) {
             return $this->responseRedirectBack('Error occurred while creating product.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.products.index', 'Product added successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.products.index', 'Product added successfully', 'success', false, false);
     }
 
     public function edit($id)
@@ -76,6 +75,6 @@ class ProductController extends BaseController
         if (!$product) {
             return $this->responseRedirectBack('Error occurred while updating product.', 'error', true, true);
         }
-        return $this->responseRedirect('admin.products.index', 'Product updated successfully' ,'success',false, false);
+        return $this->responseRedirect('admin.products.index', 'Product updated successfully', 'success', false, false);
     }
 }

@@ -8,16 +8,17 @@ Route::group(['prefix'  =>  'admin'], function () {
 
     Route::group(['middleware' => ['auth:admin']], function () {
 
-    Route::get('/', function () {
+        Route::get('/', function () {
             return view('admin.dashboard.index');
         })->name('admin.dashboard');
     });
 
+    // Settings Route
     Route::get('/settings', 'Admin\SettingController@index')->name('admin.settings');
     Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings.update');
 
     // Categories Route
-    Route::group(['prefix'  =>   'categories'], function() {
+    Route::group(['prefix'  =>   'categories'], function () {
 
         Route::get('/', 'Admin\CategoryController@index')->name('admin.categories.index');
         Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
@@ -25,11 +26,10 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::get('/{id}/edit', 'Admin\CategoryController@edit')->name('admin.categories.edit');
         Route::post('/update', 'Admin\CategoryController@update')->name('admin.categories.update');
         Route::get('/{id}/delete', 'Admin\CategoryController@delete')->name('admin.categories.delete');
-    
     });
 
     // Attributes Route
-    Route::group(['prefix'  =>   'attributes'], function() {
+    Route::group(['prefix'  =>   'attributes'], function () {
 
         Route::get('/', 'Admin\AttributeController@index')->name('admin.attributes.index');
         Route::get('/create', 'Admin\AttributeController@create')->name('admin.attributes.create');
@@ -42,11 +42,10 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::post('/add-values', 'Admin\AttributeValueController@addValues');
         Route::post('/update-values', 'Admin\AttributeValueController@updateValues');
         Route::post('/delete-values', 'Admin\AttributeValueController@deleteValues');
-    
     });
 
     // Brand Route
-    Route::group(['prefix'  =>   'brands'], function() {
+    Route::group(['prefix'  =>   'brands'], function () {
 
         Route::get('/', 'Admin\BrandController@index')->name('admin.brands.index');
         Route::get('/create', 'Admin\BrandController@create')->name('admin.brands.create');
@@ -54,7 +53,6 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::get('/{id}/edit', 'Admin\BrandController@edit')->name('admin.brands.edit');
         Route::post('/update', 'Admin\BrandController@update')->name('admin.brands.update');
         Route::get('/{id}/delete', 'Admin\BrandController@delete')->name('admin.brands.delete');
-    
     });
 
     // Product Route
@@ -79,10 +77,5 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::post('attributes/add', 'Admin\ProductAttributeController@addAttribute');
         // Delete product attribute from the current product
         Route::post('attributes/delete', 'Admin\ProductAttributeController@deleteAttribute');
-     
     });
-    
-
 });
-
-

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Contracts\BaseContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 /**
  * Class BaseRepository
  *
@@ -40,7 +41,7 @@ class BaseRepository implements BaseContract
      * @param int $id
      * @return bool
      */
-    public function update(array $attributes, int $id) : bool
+    public function update(array $attributes, int $id): bool
     {
         return $this->find($id)->update($attributes);
     }
@@ -107,7 +108,7 @@ class BaseRepository implements BaseContract
      * @param int $id
      * @return bool
      */
-    public function delete(int $id) : bool
+    public function delete(int $id): bool
     {
         return $this->model->find($id)->delete();
     }
